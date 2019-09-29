@@ -9,9 +9,10 @@
       <div class="content">
         <p>
           <strong>{{product.name}}</strong>
+          ({{product.stockLeft}})
           &nbsp;
-          <i *ngIf="product.inStock" class="fas fa-check" style="color:green"> &nbsp;</i>
-          <i *ngIf="!product.inStock" class="fas fa-times" style="color:red"> &nbsp;</i>
+          <i *ngIf="product.stockLeft > 0" class="fas fa-check" style="color:green"> &nbsp;</i>
+          <i *ngIf="product.stockLeft <= 0" class="fas fa-times" style="color:red"> &nbsp;</i>
         </p>
       </div>
       <nav class="level is-mobile">
@@ -20,8 +21,11 @@
             <span class="money-import">{{product.price | currency}}</span>
           </span>
         </div>
-        <div> <a *ngIf="list" class="button is-primary is-medium"><i class="fas fa-shopping-cart"></i>&nbsp;Agregar al
-            Carrito</a>
+        <div>
+          <a *ngIf="list && product.inStock" (click)="addToCart(product)" class=" button is-primary is-medium">
+            <i class="fas fa-shopping-cart"></i>&nbsp;Agregar al
+            Carrito
+          </a>
         </div>
       </nav>
 

@@ -9,9 +9,11 @@ import { BEERS } from "src/mocks/Beers";
   styleUrls: ["./beer-list.component.scss"]
 })
 export class BeerListComponent implements OnInit {
-  public beers: Beer[] = BEERS;
+  public beers: Beer[];
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.beers = BEERS;
+  }
 }
