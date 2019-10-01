@@ -11,12 +11,19 @@ export class ProductCardComponent implements OnInit {
   // tslint:disable: no-input-rename
   @Input("product") product: Beer;
   @Input("list") list: boolean;
+  quantity: number;
 
   constructor() {}
 
-  addToCart(product: Beer) {
-    console.log((product.stockLeft -= 1));
+  addToCart() {
+    this.product.stockLeft -= 1;
   }
 
-  ngOnInit() {}
+  isAvailable() {
+    return this.product.stockLeft > 0;
+  }
+
+  ngOnInit() {
+    this.quantity = 1;
+  }
 }

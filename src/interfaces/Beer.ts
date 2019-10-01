@@ -5,4 +5,5 @@ export class Beer {
   price: number;
   inStock: boolean;
   stockLeft: number;
+  onSale: boolean;
 }

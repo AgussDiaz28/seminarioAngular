@@ -7,7 +7,8 @@ export const BEERS: Beer[] = [
     img: "Imagen1",
     price: 95,
     inStock: false,
-    stockLeft: 0
+    stockLeft: 0,
+    onSale: true,
   },
   {
     name: "Birra2",
@@ -15,7 +16,8 @@ export const BEERS: Beer[] = [
     img: "Imagen2",
     price: 145,
     inStock: true,
-    stockLeft: 2
+    stockLeft: 2,
+    onSale: false,
   },
   {
     name: "Birra3",
@@ -23,7 +25,8 @@ export const BEERS: Beer[] = [
     img: "Imagen2",
     price: 135,
     inStock: true,
-    stockLeft: 22
+    stockLeft: 8,
+    onSale: true,
   },
   {
     name: "Birra4",
@@ -31,6 +34,7 @@ export const BEERS: Beer[] = [
     img: "Imagen2",
     price: 99,
     inStock: true,
-    stockLeft: 23
+    stockLeft: 5,
+    onSale: false,
   }
 ];

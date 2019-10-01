@@ -7,13 +7,19 @@
     </div>
     <div class="media-content">
       <div class="content">
-        <p>
-          <strong>{{product.name}}</strong>
-          ({{product.stockLeft}})
-          &nbsp;
-          <i *ngIf="product.stockLeft > 0" class="fas fa-check" style="color:green"> &nbsp;</i>
-          <i *ngIf="product.stockLeft <= 0" class="fas fa-times" style="color:red"> &nbsp;</i>
-        </p>
+        <i *ngIf="(product.onSale)" class=" fas fa-award"></i>
+        &nbsp;
+        <strong>{{product.name}}</strong>
+        &nbsp;
+        ({{product.stockLeft }})
+        ({{(product.stockLeft > 0)}})
+        <!-- <i  [ngClass]="(product.stockLeft > 0) ? 'fas fa-check green' : 'fas fa-times red'"> &nbsp;</i> -->
+        <div *ngIf="(product.stockLeft > 0); else noStock">
+          <i class="fas fa-check" style="color:green"> &nbsp;</i>
+        </div>
+        <ng-template #noStock>
+          <i class="fas fa-times" style="color:red"> &nbsp;</i>
+        </ng-template>
       </div>
       <nav class="level is-mobile">
         <div style="padding-left: 3rem;">
@@ -22,10 +28,11 @@
           </span>
         </div>
         <div>
-          <a *ngIf="list && product.inStock" (click)="addToCart(product)" class=" button is-primary is-medium">
+          <button [disabled]="(product.stockLeft <= 0 ) || (quantity > product.stockLeft) " (click)="addToCart()" class=" button is-primary is-medium">
             <i class="fas fa-shopping-cart"></i>&nbsp;Agregar al
             Carrito
-          </a>
+          </button>
+          <input style="display: block;" type="number" class="input" [(ngModel)]="quantity" #ctrl="ngModel" required>
         </div>
       </nav>
 
