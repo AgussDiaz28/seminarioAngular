@@ -16,7 +16,7 @@ export class ProductCardComponent implements OnInit {
   constructor() {}
 
   addToCart() {
-    this.product.stockLeft -= 1;
+    this.product.stockLeft -= this.quantity;
   }
 
   isAvailable() {
