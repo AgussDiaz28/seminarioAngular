@@ -1,7 +1,7 @@
 <div id="beer-list">
   <h1 class="title">Nuestras Cervezas</h1>
   <div *ngFor="let beer of beers">
-    <app-product-card [product]="beer" [list]="true"></app-product-card>
+    <app-product-card (newCartItem)="addToCart($event)" [product]="beer" [list]="true"></app-product-card>
     <br>
   </div>
 </div>

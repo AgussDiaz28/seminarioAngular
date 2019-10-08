@@ -1,5 +1,5 @@
 // tslint:disable: quotemark
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { Beer } from "src/interfaces/Beer";
 
 @Component({
@@ -8,7 +8,7 @@ import { Beer } from "src/interfaces/Beer";
   styleUrls: ["./beer-cart.component.scss"]
 })
 export class BeerCartComponent implements OnInit {
-  public cartItems: Beer[];
+  @Input("cartItems") cartItems: Beer[];
 
   constructor() {}
 

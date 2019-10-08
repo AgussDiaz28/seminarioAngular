@@ -1,5 +1,5 @@
 // tslint:disable: quotemark
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { Beer } from "../../interfaces/Beer";
 import { BEERS } from "src/mocks/Beers";
 
@@ -10,10 +10,16 @@ import { BEERS } from "src/mocks/Beers";
 })
 export class BeerListComponent implements OnInit {
   public beers: Beer[];
-
+  @Input("cartItems") cartItems: Beer[];
+  
   constructor() {}
 
   ngOnInit() {
     this.beers = BEERS;
+  }
+
+  addToCart(beer: Beer) {
+    console.log('Adding new beer');
+    this.cartItems.push(beer);
   }
 }

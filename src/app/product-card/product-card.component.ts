@@ -1,5 +1,5 @@
 // tslint:disable: quotemark
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
 import { Beer } from "src/interfaces/Beer";
 
 @Component({
@@ -12,11 +12,13 @@ export class ProductCardComponent implements OnInit {
   @Input("product") product: Beer;
   @Input("list") list: boolean;
   quantity: number;
+  @Output() newCartItem = new EventEmitter<Beer>();
 
   constructor() {}
 
   addToCart() {
     this.product.stockLeft -= this.quantity;
+    this.newCartItem.next(this.product);
   }
 
   isAvailable() {
