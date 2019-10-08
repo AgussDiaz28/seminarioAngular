@@ -17,7 +17,6 @@ export class ProductCardComponent implements OnInit {
   constructor() {}
 
   addToCart() {
-    this.product.stockLeft -= this.quantity;
     this.newCartItem.next(this.product);
   }
 

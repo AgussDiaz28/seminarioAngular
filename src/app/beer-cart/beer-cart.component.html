@@ -1,5 +1,9 @@
 <div id="beer-cart">
   <a class="button is-primary is-medium is-fullwidth"><i class="fas fa-wallet"></i>&nbsp;Finalizar Compra</a>
   <br>
-  <app-product-card [list]="false" *ngFor="let cartItem of cartItems" [product]="cartItem"></app-product-card>
+  <div *ngFor="let cartItem of cartItems">
+    <app-product-card [list]="false" [product]="cartItem"> </app-product-card>
+    <br/>
+  </div>
+ 
 </div>

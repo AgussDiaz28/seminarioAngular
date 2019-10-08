@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
+import { BeerDataService } from './servicies/beer-data.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [BeerDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
