@@ -16,8 +16,7 @@ export class BeerListComponent implements OnInit {
 
   ngOnInit() {
     this.BeerDataService.getBeers().subscribe(response  => {
-      console.log(response);
-      this.beers = response;
+      this.beers = response as Beer[];
     });
   }
 

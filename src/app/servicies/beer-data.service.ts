@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Beer } from "../../interfaces/Beer";
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
 import { BEERS } from "../../mocks/Beers"
 @Injectable({
   providedIn: 'root'
