@@ -11,6 +11,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { BeerDataService } from './servicies/beer-data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,9 +25,10 @@ import { BeerDataService } from './servicies/beer-data.service';
     HomeComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [BeerDataService],
   bootstrap: [AppComponent]

@@ -15,7 +15,10 @@ export class BeerListComponent implements OnInit {
   constructor(private BeerDataService: BeerDataService) {}
 
   ngOnInit() {
-    this.beers = this.BeerDataService.getBeers();
+    this.BeerDataService.getBeers().subscribe(response  => {
+      console.log(response);
+      this.beers = response;
+    });
   }
 
   beerInCart(beer: Beer): boolean {
