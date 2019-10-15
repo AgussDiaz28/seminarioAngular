@@ -12,6 +12,7 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { BeerDataService } from './servicies/beer-data.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CartServiceService } from './servicies/cart-service.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     ProductCardComponent,
     AboutComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     HttpClientModule,
@@ -30,7 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
   ],
-  providers: [BeerDataService],
+  providers: [BeerDataService,CartServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

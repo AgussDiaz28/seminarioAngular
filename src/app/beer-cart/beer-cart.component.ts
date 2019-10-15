@@ -1,6 +1,7 @@
 // tslint:disable: quotemark
 import { Component, OnInit, Input } from "@angular/core";
 import { Beer } from "src/interfaces/Beer";
+import { CartServiceService } from '../servicies/cart-service.service';
 
 @Component({
   selector: "app-beer-cart",
@@ -8,9 +9,13 @@ import { Beer } from "src/interfaces/Beer";
   styleUrls: ["./beer-cart.component.scss"]
 })
 export class BeerCartComponent implements OnInit {
-  @Input("cartItems") cartItems: Beer[];
+  private cartItems: Beer[];
 
-  constructor() {}
+  constructor(private CartService: CartServiceService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.CartService.getCartItems().subscribe(response => {
+      this.cartItems = response as Beer[];
+    })
+  }
 }

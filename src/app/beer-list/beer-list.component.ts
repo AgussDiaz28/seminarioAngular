@@ -2,6 +2,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Beer } from "../../interfaces/Beer";
 import { BeerDataService } from '../servicies/beer-data.service';
+import { CartServiceService } from '../servicies/cart-service.service';
 
 @Component({
   selector: "app-beer-list",
@@ -12,7 +13,7 @@ export class BeerListComponent implements OnInit {
   public beers: Beer[];
   @Input("cartItems") cartItems: Beer[];
   
-  constructor(private BeerDataService: BeerDataService) {}
+  constructor(private BeerDataService: BeerDataService, private CartService: CartServiceService) {}
 
   ngOnInit() {
     this.BeerDataService.getBeers().subscribe(response  => {
@@ -20,23 +21,7 @@ export class BeerListComponent implements OnInit {
     });
   }
 
-  beerInCart(beer: Beer): boolean {
-    let response = false;
-    this.cartItems.forEach((elem:Beer) => {
-      if (elem.name === beer.name) {
-        response = true;
-      };
-    })
-    return response;
-  }
-
   addToCart(beer: Beer) {
-    // console.log(beer);
-    // console.log(this.cartItems);
-    // console.log(this.beerInCart(beer))
-    if (!this.beerInCart(beer)) {
-       this.cartItems.push(beer);
-    }
-   
+    this.CartService.addToCart(beer);
   }
 }
